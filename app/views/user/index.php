@@ -46,10 +46,12 @@ use yii\widgets\ActiveForm;
         }
         
         $( "#btn" ).click(function() {
+            
             // Получение данных и обработка
             var first_name = first_nameValid($( 'input[id="user-first_name"]' ).val());
             var telephone = telephoneValid($( 'input[id="user-telephone"]' ).val());
             var email = emailValid($( 'input[id="user-email"]' ).val());
+
             // Если error то показывает ошибку под полем.
             if ('error' in first_name) {
                 // Текст ошибки
@@ -81,18 +83,20 @@ use yii\widgets\ActiveForm;
                 method: 'post',
 		        dataType: 'json',
                 data: {
-                    'first_name': first_name,
-                    'telephone': telephone,
-                    'email': email
+                    'first_name': first_name.response,
+                    'telephone': telephone.response,
+                    'email': email.response
                 },
                 success: function (response) {
-                    alert('Данные успешно сохранены!')
+                    alert(response[0].message)
+                    console.log(response)
                     // очистка полей
                     $( 'input[id="user-first_name"]' ).val('')
                     $( 'input[id="user-telephone"]' ).val('')
                     $( 'input[id="user-email"]' ).val('')
                 },
                 error: function (error) {
+                    console.log(error)
                     alert('Ошибка сервера!')
                 }
             });
