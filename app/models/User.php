@@ -10,6 +10,7 @@ use Yii;
  * @property int $id
  * @property string $first_name
  * @property string $telephone
+ * @property string $email
  */
 class User extends \yii\db\ActiveRecord
 {
@@ -27,10 +28,10 @@ class User extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['first_name', 'telephone'], 'required'],
-            [['first_name'], 'string', 'max' => 30],
+            [['first_name', 'telephone', 'email'], 'required'],
+            [['first_name', 'email'], 'string', 'max' => 30],
             [['telephone'], 'string', 'max' => 18],
-            [['first_name'], 'unique'],
+            [['email'], 'unique'],
             [['telephone'], 'unique'],
         ];
     }
@@ -44,6 +45,7 @@ class User extends \yii\db\ActiveRecord
             'id' => 'ID',
             'first_name' => 'First Name',
             'telephone' => 'Telephone',
+            'email' => 'Email',
         ];
     }
 }

@@ -16,7 +16,7 @@ class m221009_044541_create_user_table extends Migration
             'id' => $this->primaryKey(),
             'first_name' => $this->string(30)->notNull(),
             'telephone' => $this->string(18)->unique()->notNull(),
-            'first_name' => $this->string(30)->unique()->notNull()
+            'email' => $this->string(30)->unique()->notNull()
         ]);
     }
 

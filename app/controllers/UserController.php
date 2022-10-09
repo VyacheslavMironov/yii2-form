@@ -2,11 +2,15 @@
 
 namespace app\controllers;
 
-class UserController extends \yii\rest\ActiveController
+use app\models\User;
+
+class UserController extends \yii\web\Controller
 {
+    // public $modelClass = 'app\models\User';
+
     public function actionIndex()
     {
-        return $this->render('index');
+        return $this->render('index', ['model' => new User()]);
     }
 
 }
