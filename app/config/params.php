@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'adminEmail' => 'admin@example.com',
-    'senderEmail' => 'noreply@example.com',
-    'senderName' => 'Example.com mailer',
+    'adminEmail' => 'vuacheslav.mironov@gmail.com',
+    'senderEmail' => 'vuacheslav.mironov@gmail.com',
+    'senderName' => 'vuacheslav.mironov@gmail.com',
 ];
